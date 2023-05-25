@@ -25,6 +25,16 @@
         <url-pattern>/second</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>myservlet</servlet-name>
+        <servlet-class>com.practice.MyServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping> 
+        <servlet-name>myservlet</servlet-name>
+        <url-pattern>/myservlet</url-pattern>
+    </servlet-mapping>
+    
     
     <session-config>
         <session-timeout>
