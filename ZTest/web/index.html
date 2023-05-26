@@ -2,7 +2,7 @@
     <head>
         <meta charset ="UTF-8">
         <title>Form Page</title>
-        <style>
+<!--        <style>
             .container{
                 width: 30%;
                 border: 1px solid black;
@@ -14,13 +14,23 @@
             #myform table tr td input{
                 font-size: 20px;
             }
-        </style>
+        </style>-->
           
     </head>
     
     <body>
         
-        <div class="container">
+        <form action ="Servlet1">
+            <input type="text" name="name" placeholder="Enter your name here" style="font-size:35px;">
+            <button type="submit" style="font-size:35px">
+                Go to servlet 1 
+            </button>
+            
+        </form>
+        
+        
+        
+<!--        <div class="container">
             <h1 style = "font-size: 25px" align="center"> My Form </h1>
             <form id = "myform" action="RegisterServlet" method ="post">
                 <table>
@@ -76,6 +86,6 @@
                     
                 </table>
             </form>
-        </div>
+        </div>-->
     </body>
 </html>
