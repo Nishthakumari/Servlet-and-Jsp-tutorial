@@ -40,6 +40,8 @@ public class RegisterServlet extends HttpServlet{
         }
         }else{
             out.println("<h1>You have not accepted terms and conditions.");
+            RequestDispatcher rd = req.getRequestDispatcher("index.html");
+            rd.include(req, resp);
         }
                
     }
