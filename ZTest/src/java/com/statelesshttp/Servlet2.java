@@ -7,6 +7,7 @@ package com.statelesshttp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,9 +39,39 @@ public class Servlet2 extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             
-            String name = request.getParameter("name");
-            out.println("<h1>Hello " + name + " Wellcome, to my Website</h1>");
+            //getting all the cookies
+            
+            Cookie[] cookies = request.getCookies();
+            
+            Boolean f = false;
+            String name = "";
+            
+            if(cookies==null)
+            {
+                out.println("<h1> You are a new user. Go to home page and submit your name</h1>");
+                return;
+            }else{
+                for(Cookie c: cookies){
+                    String tname = c.getName();
+                    if(tname.equals("user_name"))
+                    {
+                        f=true;
+                        name=c.getValue();
+                    }
+                    
+                }
+            }
+            
+            if(f)
+            {
+                out.println("<h1>Hello " + name + " Wellcome, to my Website</h1>");
             out.println("<h1>Thank you</h1>");
+            
+            }else{
+                 out.println("<h1> You are a new user. Go to home page and submit your name</h1>");
+            }
+            
+          
             
             out.println("</body>");
             out.println("</html>");
