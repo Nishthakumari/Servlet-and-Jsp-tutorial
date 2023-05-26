@@ -35,6 +35,9 @@ public class RegisterServlet extends HttpServlet{
             out.println("<h2> Gender " + gender+ "</h2>");
             out.println("<h2> Course " + course + "</h2>");
             
+            RequestDispatcher rd = req.getRequestDispatcher("success");
+            rd.forward(req, resp);
+            
         }else{
             out.println("<h1>You have not accepted terms and conditions.");
         }
