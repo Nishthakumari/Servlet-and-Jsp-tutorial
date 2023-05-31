@@ -2,24 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.user;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.tomcat.dbcp.dbcp2.DriverManagerConnectionFactory;
-import java.sql.*;
 
 /**
  *
  * @author Nishtha
  */
-public class Register extends HttpServlet {
+public class Servlet2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,53 +34,14 @@ public class Register extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Register</title>");            
+            out.println("<title>Servlet Servlet2</title>");            
             out.println("</head>");
             out.println("<body>");
-            //getting all the incomings detail from the request
             
-             String name = request.getParameter("user_name");
-             String password = request.getParameter("user_password");
-             String email = request.getParameter("user_email");
-             
-            out.println(name);
-            out.println(password);
-            out.println(email);
+            out.println("<h1 style='color:blue;'>Welcome to Servlet 2</h1>");
             
-          
-          
-               
-                 
-                try {
-                try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                } catch (ClassNotFoundException ex) {
-                    out.print("JDBC error");
-                }
-                     Connection con;
-              
-            
-                  //query
-                  String q = "insert into user(name, password, email)values(?, ?, ?)";
-                    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/youtube", "user", "password");
-                    PreparedStatement pstmt = con.prepareStatement(q);
-                    pstmt.setString(1, name);
-                    pstmt.setString(2, password);
-                    pstmt.setString(3, email);
-                    pstmt.executeUpdate();
-                    out.println("<h1>Done .....</h1>"); 
-                  
-                } catch (SQLException ex) {
-                  out.println("error..........");
-                }
-                  
-                  //fire query
-                   
-                
-            
-           
-              
-            
+            String name = request.getParameter("user");
+            out.println("<h1 style='color:red;'>Welcome back "+name+"</h1>");
             
             out.println("</body>");
             out.println("</html>");
@@ -103,8 +60,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          processRequest(request, response);
-        
+        processRequest(request, response);
     }
 
     /**
@@ -118,10 +74,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-       processRequest(request, response);
-         
-        
+        processRequest(request, response);
     }
 
     /**
