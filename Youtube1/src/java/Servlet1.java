@@ -39,7 +39,13 @@ public class Servlet1 extends HttpServlet {
             
             String name =request.getParameter("user_name");
             out.println("<h1> Your name is  "+name+"</h1>");
-            out.println("<a href ='servlet2?user="+name+"'> Go to second servlet</a>");
+            out.println(""
+                    + "<form action = 'servlet2' >"
+                    + "<input type='hidden' name='user_name' value='"+name+"' />"
+                    + "<button> Go to second servlet </button>"
+                    + ""
+                    + ""
+                    + "</form>");
             
             
             out.println("</body>");
